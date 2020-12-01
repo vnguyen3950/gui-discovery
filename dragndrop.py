@@ -1,5 +1,5 @@
 import sys
-from PySide2 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtGui, QtWidgets
 # source: https://gist.github.com/joezuntz/d043707ca7717e23ffab13f07836decd
 class InitialCard(QtWidgets.QLabel):
     def __init__(self, text, parent):
@@ -29,9 +29,7 @@ class CardsDropWidget(QtWidgets.QWidget):
         super(CardsDropWidget, self).__init__(parent)
         self.setAcceptDrops(True)
         self.contentsVLO = QtWidgets.QVBoxLayout()
-        self.contentsVLO2 = QtWidgets.QVBoxLayout()
         self.contentsVLO.setAlignment(QtCore.Qt.AlignTop)
-        self.contentsVLO2.setAlignment(QtCore.Qt.AlignTop)
         self.setLayout(self.contentsVLO)
     
     def dragEnterEvent(self, event):
@@ -65,6 +63,7 @@ class MainDialogue(QtWidgets.QDialog):
         self.scrollContent = CardsDropWidget(self.scrollArea)
         self.scrollArea.setMinimumWidth(150)
         self.scrollArea.setWidget(self.scrollContent)
+        
         self.dialogueLayout=QtWidgets.QHBoxLayout()
         self.labelLayout=QtWidgets.QVBoxLayout()
         self.labelLayout.addWidget(self.label)
