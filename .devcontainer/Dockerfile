@@ -23,7 +23,8 @@ RUN apt-get update \
     && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts/
 
 
-RUN sudo apt update -y && sudo apt-get install -y python3.7 python3-pip libgl1-mesa-dev qt5dxcb-plugin
+RUN sudo apt update -y && sudo apt-get install -y python3.7 python3-pip libgl1-mesa-glx xcb qt5dxcb-plugin/stable
+#libgl1-mesa-dev
 RUN pip3 install PyQt5==5.14
 # Setting the ENTRYPOINT to docker-init.sh will configure non-root access to 
 # the Docker socket if "overrideCommand": false is set in devcontainer.json. 
